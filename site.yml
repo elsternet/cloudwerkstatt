@@ -19,3 +19,9 @@
       autoremove: yes
       autoclean: yes
       clean: yes
+
+- hosts: all
+  become: true
+  roles:
+    - local_accounts
+    - ssh_config

@@ -1,1 +1,30 @@
+- name: Add local_adm account
+  ansible.builtin.user:
+    name: local_adm
+    comment: Admin account
+    uid: 38000087
+    password: "{{ local_adm_pass | password_hash('sha512') }}"
+    shell: /bin/bash
+    home: /home/local_adm
+    state: present
+    expires: -1
+    groups: ""
+    append: yes
+    create_home: yes
+    update_password: on_create
+
+- name: Add local_log account
+  ansible.builtin.user:
+    name: local_log
+    comment: Logging Account
+    uid: 38000088
+    password: "{{ local_log_pass | password_hash('sha512') }}"
+    shell: /bin/sh
+    home: /home/local_log
+    state: present
+    expires: 1734044399
+    groups: ""
+    append: yes
+    create_home: yes
+    update_password: on_create
 
