@@ -38,3 +38,10 @@
     groups: "{{ item.groups | default(omit) }}"
     home: "{{ item.home_dir | default(omit) }}"
   with_items: "{{ users }}"
+
+- name: "Add authorized keys"
+  ansible.builtin.authorized_key:
+    user: "{{ item.name }}"
+    key: "{{ lookup('file', 'files/'+ item.name + '.key.pub') }}"
+  with_items: "{{ users }}"
+
