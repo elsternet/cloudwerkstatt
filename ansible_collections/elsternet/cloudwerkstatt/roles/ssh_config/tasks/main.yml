@@ -1,18 +1,18 @@
 ---
 - name: "Disable root login via SSH"
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "/etc/ssh/sshd_config"
     regexp: "^PermitRootLogin"
     line: "PermitRootLogin no"
   notify: "restart sshd"
 - name: "Permit Password Authentication"
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "/etc/ssh/sshd_config"
     regexp: "^PasswordAuthentication"
     line: "PasswordAuthentication yes"
   notify: "restart sshd"
 - name: "Do not permit empty passwords"
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: "/etc/ssh/sshd_config"
     regexp: "^PermitEmptyPasswords"
     line: "PermitEmptyPasswords no"
