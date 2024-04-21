@@ -1,10 +1,19 @@
 ---
-- name: Ensure SSHD is configured with the specified options
-  become: yes
-  template:
-    src: "sshd_config.j2"
+- name: "Disable root login via SSH"
+  lineinfile:
     dest: "/etc/ssh/sshd_config"
-    owner: "root"
-    group: "root"
-    mode: "0644"
-  notify: restart sshd
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+  notify: "restart sshd"
+- name: "Permit Password Authentication"
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^PasswordAuthentication"
+    line: "PasswordAuthentication yes"
+  notify: "restart sshd"
+- name: "Do not permit empty passwords"
+  lineinfile:
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^PermitEmptyPasswords"
+    line: "PermitEmptyPasswords no"
+  notify: "restart sshd"
