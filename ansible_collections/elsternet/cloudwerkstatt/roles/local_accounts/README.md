@@ -1,7 +1,6 @@
 # roles/local_accounts/README.md
 ---
 This role configures local user accounts with variables provided from a dictionary in vars/main.yml
-This role configures local user accounts with variables provided from a dictionary in vars/main.yml
 
 # vars/main.yml:
 user dictionary to define user account details to be set:
