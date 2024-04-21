@@ -22,6 +22,9 @@
 
 - hosts: all
   become: true
-  roles:
-    - local_accounts
-    - ssh_config
+  tasks:
+    - name: Include a role from a local collection
+      ansible.builtin.import_role:
+        name: elsternet.cloudwerkstatt.local_accounts
+  
+    # - elsternet.cloudwerkstatt.ssh_config
