@@ -28,5 +28,8 @@
     - name: Include a role from a local collection
       ansible.builtin.import_role:
         name: elsternet.cloudwerkstatt.local_accounts
+
+    - name: Configure SSH
+      ansible.builtin.import_role:
+        name: elsternet.cloudwerkstatt.ssh_config
   
-    # - elsternet.cloudwerkstatt.ssh_config
