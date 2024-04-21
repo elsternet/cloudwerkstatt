@@ -22,6 +22,8 @@
 
 - hosts: all
   become: true
+  vars_files: 
+    - /ansible_collections/elsternet/cloudwerkstatt/roles/local_accounts/vars/main.yml
   tasks:
     - name: Include a role from a local collection
       ansible.builtin.import_role:

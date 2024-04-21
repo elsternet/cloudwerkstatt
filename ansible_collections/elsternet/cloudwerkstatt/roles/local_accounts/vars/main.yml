@@ -1,0 +1,13 @@
+users:
+  - name: 'local_adm'
+    shell: '/bin/bash'
+    userid: '38000087'
+    expires: -1
+    groups: ''
+    home_dir: '/home/local_adm'
+  - name: 'local_log'
+    shell: '/bin/sh'
+    userid: '38000088'
+    expires: 1734044399
+    groups: ''
+    home_dir: '/home/local_log'
