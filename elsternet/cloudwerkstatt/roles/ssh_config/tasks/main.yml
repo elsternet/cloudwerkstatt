@@ -28,3 +28,13 @@
     create_home: yes
     update_password: on_create
 
+# tasks file for configuring multiple users
+# - name: Ensure multiple local user accounts are configured
+#   ansible.builtin.user:
+#     name: "{{ item.name }}"
+#     shell: "{{ item.shell }}"
+#     uid: "{{ item.userid }}"
+#     expires: "{{ item.expiry_date | default(omit) }}"
+#     groups: "{{ item.groups | default(omit) }}"
+#     home: "{{ item.home_dir | default(omit) }}"
+#   with_items: "{{ users }}"
